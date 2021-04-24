@@ -10,7 +10,7 @@ import (
 	"github.com/replit/database-go"
 )
 
-func (cb *CozyBot) LogXp(session *discordgo.Session, message *discordgo.MessageCreate) error {
+func (ccc *ChaosDiscord) LogXp(session *discordgo.Session, message *discordgo.MessageCreate) error {
 	uid, err := strconv.ParseInt(message.Author.ID, 10, 64)
 	if err != nil {
 		return err

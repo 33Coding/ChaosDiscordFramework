@@ -2,7 +2,7 @@ package handler
 
 
 import (
-  "CozyBot/src/bot"
+  "ChaosDiscord/src/bot"
   "strconv"
   "log"
   "github.com/bwmarrin/discordgo"

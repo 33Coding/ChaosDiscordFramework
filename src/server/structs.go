@@ -5,7 +5,7 @@ import (
   "github.com/jaredfolkins/badactor"
 )
 
-type CozyBot struct {
+type ChaosDiscord struct {
 	Disc *discordgo.Session
   BadActor *badactor.Studio
 }

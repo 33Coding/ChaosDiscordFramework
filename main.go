@@ -1,7 +1,7 @@
 package main
 
 import (
-	"CozyBot/src/server"
+	"ChaosDiscord/src/server"
 	"flag"
 	"fmt"
   "log"
@@ -23,7 +23,7 @@ func init() {
 
 
 
-var Bot server.CozyBot
+var Bot server.ChaosDiscord
 
 func main() {
 
@@ -31,6 +31,8 @@ func main() {
 	dg, err := discordgo.New("Bot " + os.Getenv("DISCORD_TOKEN"))
 	if err != nil {
 		fmt.Println("error creating Discord session,", err)
+    		fmt.Println("(maybe set the mfkin DISCORD_TOKEN secret??)")
+
 		return
 	}
 

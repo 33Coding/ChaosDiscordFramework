@@ -5,7 +5,7 @@ import (
   "log"
 )
 
-func (cb *CozyBot) WhenJailed(a *badactor.Actor, r *badactor.Rule) error {
+func (ccc *ChaosDiscord) WhenJailed(a *badactor.Actor, r *badactor.Rule) error {
   // todo: mute user
 
 
@@ -20,7 +20,7 @@ func (cb *CozyBot) WhenJailed(a *badactor.Actor, r *badactor.Rule) error {
 	return nil
 }
 
-func (cb *CozyBot) WhenTimeServed(a *badactor.Actor, r *badactor.Rule) error {
+func (ccc *ChaosDiscord) WhenTimeServed(a *badactor.Actor, r *badactor.Rule) error {
   // Do something here. Log, email, etc...
   //todo: unmite user
 	return nil

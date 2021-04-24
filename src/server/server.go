@@ -8,25 +8,25 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
-func (cb *CozyBot) Run() {
+func (ccc *ChaosDiscord) Run() {
 
 	// Register the messageCreate func as a callback for MessageCreate events.
-	cb.Disc.AddHandler(cb.messageCreate)
+	ccc.Disc.AddHandler(ccc.messageCreate)
 
 	// In this example, we only care about receiving message events.
-	cb.Disc.Identify.Intents = discordgo.IntentsGuildMessages
+	ccc.Disc.Identify.Intents = discordgo.IntentsGuildMessages
 
 	// Open a websocket connection to Discord and begin listening.
-	err := cb.Disc.Open()
+	err := ccc.Disc.Open()
 	if err != nil {
 		fmt.Println("error opening connection,", err)
 		return
 	}
-  defer cb.Disc.Close()
+  defer ccc.Disc.Close()
 	app := fiber.New()
 
     app.Get("/", func(c *fiber.Ctx) error {
-        return c.SendString("Hello, World 👋! Greezings, CozyBot 🙂")
+        return c.SendString("trust is a weakness")
     })
 
     app.Listen(":8000")

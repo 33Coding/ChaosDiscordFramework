@@ -1,8 +1,8 @@
 package server
 
 import (
-	"CozyBot/src/bot"
-	"CozyBot/src/handler"
+	"ChaosDiscord/src/bot"
+	"ChaosDiscord/src/handler"
 	"errors"
 	"log"
 	"strings"
@@ -24,7 +24,7 @@ var Commands = []bot.Command{{
 	Handler:    handler.WhoamiHandler,
 }}
 
-func (cb *CozyBot) messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
+func (ccc *ChaosDiscord) messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	if m.Author.ID == s.State.User.ID {
 		return
 	}
@@ -40,7 +40,7 @@ func (cb *CozyBot) messageCreate(s *discordgo.Session, m *discordgo.MessageCreat
 		message.Delete()
 
 		//spam check
-		if cb.BadActor.IsJailed(message.Message.Message.Author.ID) {
+		if ccc.BadActor.IsJailed(message.Message.Message.Author.ID) {
 			log.Println("spam block")
 
 			err := message.Session.ChannelMessageDelete(message.Message.ChannelID, message.Message.ID)
@@ -50,7 +50,7 @@ func (cb *CozyBot) messageCreate(s *discordgo.Session, m *discordgo.MessageCreat
 			return
 		}
 
-		err := cb.BadActor.Infraction(message.Message.Message.Author.ID, "spamBlock") // add an Infraction on every command usage (even if invalid one)
+		err := ccc.BadActor.Infraction(message.Message.Message.Author.ID, "spamBlock") // add an Infraction on every command usage (even if invalid one)
 		if err != nil {
 			log.Println(err)
 		}
@@ -86,7 +86,7 @@ func (cb *CozyBot) messageCreate(s *discordgo.Session, m *discordgo.MessageCreat
 		//commandHandler(&message)
 	} else {
 		//messageHandler(&message)
-		err := cb.LogXp(s, m)
+		err := ccc.LogXp(s, m)
 
 		if err != nil {
 			log.Println("Error logging exp:")
